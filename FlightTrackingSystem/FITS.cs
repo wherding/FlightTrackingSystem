@@ -75,6 +75,9 @@ namespace FlightTrackingSystem
         //first method user sees to begin their selection process
         public void SelectionMenu()
         {
+            // ****
+            // edited version to be pulled to master
+            // ****
             do
             {
                 Console.Clear();
@@ -93,7 +96,7 @@ namespace FlightTrackingSystem
                 if (userSelection != "1" && userSelection != "2" && userSelection != "3" && userSelection != "4" && userSelection != "5")
                 {
                     Console.Write("\nInvalid entry. Please try again.");
-                   Console.ReadLine();
+                    userSelection = Console.ReadLine();
                 }
             } while (userSelection != "1" && userSelection != "2" && userSelection != "3" && userSelection != "4" && userSelection != "5");
 
@@ -201,10 +204,19 @@ namespace FlightTrackingSystem
                 Console.WriteLine("\n");
                 for (int i = 0; i < loadedFlights.Length; i++)
                 {
-                    if (i == flightSelected)
+                    //just added this try and the null reference catch in an effort to make program more robust.
+                    try
                     {
-                        Console.WriteLine("\t\t{0,-3} {1,-20} {2,5} {3,-20}", loadedFlights[i].FlightNumber,
-                                 loadedFlights[i].Departure, "-->", loadedFlights[i].Destination);
+                        if (i == flightSelected)
+                        {
+                            Console.WriteLine("\t\t{0,-3} {1,-20} {2,5} {3,-20}", loadedFlights[i].FlightNumber,
+                                     loadedFlights[i].Departure, "-->", loadedFlights[i].Destination);
+                        }
+                    }
+                    //just added this catch in an effort to make program mroe robust. 
+                    catch(NullReferenceException)
+                    {
+                        Console.WriteLine("invalid input. plz try again.");
                     }
                 }
                 Console.WriteLine("\nSee Options below... \n");
