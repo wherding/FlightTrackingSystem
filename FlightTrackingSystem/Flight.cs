@@ -1,5 +1,4 @@
-﻿//William Herding Jason Lewis cis 345 t th 4:30 pm
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,64 +18,14 @@ namespace FlightTrackingSystem
 
         Passenger[] passengerArray= new Passenger[20];
         
-        public string FlightNumber
-        {
-            get
-            {
-                return this.flightNumber;
-            }
-            set
-            {
-                this.flightNumber = value;
-            }
-        }
+        public string FlightNumber { get; set; }
 
-        public string Departure
-        {
-            get
-            {
-                return this.departure;
-            }
-            set
-            {
-                this.departure = value;
-            }
-        }
+        public string Departure { get; set; }
 
-        public string Destination
-        {
-            get
-            {
-                return this.destination;
-            }
-            set
-            {
-                this.destination = value;
-            }
-        }
+        public string Destination { get; set; }
                 
-        public int PassCount
-        {
-            get
-            {
-                return passCount;
-            }
-            set
-            {
-                passCount = value;
-            }
-        }
-        public Passenger[] PassengerArray
-        {
-            get
-            {
-                return passengerArray;
-            }
-            set
-            {
-                passengerArray = value;
-            }
-        }
+        public int PassCount { get; set; }
+        public Passenger[] PassengerArray { get; set; }
 
         public Flight()
         {
@@ -160,6 +109,9 @@ namespace FlightTrackingSystem
             passCount++;
         }
         
-        
+        public override string ToString()
+        {
+            return flightNumber + ": " + departure + " --> " + destination;
+        }
     }
 }

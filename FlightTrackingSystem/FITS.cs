@@ -28,7 +28,7 @@ namespace FlightTrackingSystem
 
         
 
-        static void Main(string[] args)
+        /*static void Main(string[] args)
         {
             FITS fits = new FITS();
 
@@ -42,7 +42,7 @@ namespace FlightTrackingSystem
             fits.loadedFlights[2].loadTempPassenger2();
             //calls method in Selection class to prompt user to make a selection
             fits.SelectionMenu();
-        }
+        }*/
 
         //method used to display system name to user
         public void Header()
@@ -132,6 +132,10 @@ namespace FlightTrackingSystem
                                 flightSelected = Convert.ToInt32(Console.ReadLine());
                                 flightSelected--;
                             }
+                            catch (NullReferenceException)
+                            {
+                                Console.WriteLine("");
+                            }
 
                             catch (OverflowException)
                             {
@@ -214,11 +218,13 @@ namespace FlightTrackingSystem
                         }
                     }
                     //just added this catch in an effort to make program mroe robust. 
-                    catch(NullReferenceException)
+                    catch (NullReferenceException)
                     {
                         Console.WriteLine("invalid input. plz try again.");
                     }
                 }
+            } while (false);
+                /*
                 Console.WriteLine("\nSee Options below... \n");
                 Console.WriteLine("1. Display Passenger Manifest");
                 Console.WriteLine("2. Edit Flight Information");
@@ -233,7 +239,7 @@ namespace FlightTrackingSystem
                     Console.ReadLine();
                 }
             } while (userSelection != "1" && userSelection != "2" && userSelection != "3" && userSelection != "4" && userSelection != "5");
-
+            */
             do
             {
                 Console.Clear();

@@ -47,7 +47,12 @@
   <ItemGroup>
     <Compile Include="FITS.cs" />
     <Compile Include="Flight.cs" />
+    <Compile Include="FlightTracker.cs" />
+    <Compile Include="MainFlightsMenu.cs" />
+    <Compile Include="PrintingSystem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SelectedFlightMenu.cs" />
+    <Compile Include="UserInputHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
